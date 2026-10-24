@@ -3,7 +3,7 @@ export const site = {
   name: "Induwara Ihalavithana",
   shortName: "Induwara",
   degreeShort: "BSc (Hons) CS & Technology",
-  url: "https://my-portfolio.vercel.app",
+  url: "https://induwara-ihalavithana.vercel.app",
   photo: "/images/induwara.webp",
   links: {
     github: "https://github.com/InduwaraIhalavithana",
