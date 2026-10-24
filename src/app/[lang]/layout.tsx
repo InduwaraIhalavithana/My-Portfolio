@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       languages: Object.fromEntries(locales.map((l) => [l, `/${l}`])),
     },
     openGraph: { type: "website", title, description: dict.meta.description, url: `/${lang}` },
+    twitter: { card: "summary_large_image", title, description: dict.meta.description },
   };
 }
 
