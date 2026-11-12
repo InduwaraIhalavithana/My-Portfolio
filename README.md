@@ -40,7 +40,7 @@ Wording and facts are kept apart:
 | `src/i18n/dictionaries/si.ts`, `ta.ts` | Sinhala and Tamil text |
 | `src/data/site.ts` | Name, links, photo |
 | `src/data/projects.ts` | Project facts: links, covers, stack, stat values |
-| `src/data/labs.ts` | Lab facts: repo link, demo video and poster (in `public/labs`), stack |
+| `src/data/labs.ts` | Lab facts: repo link, cover and slides (in `public/labs`), demo post link, stack |
 | `src/data/research.ts` | Research facts: official title, authors, poster files |
 | `src/data/skills.ts` | Skill groups |
 | `cv/cv.html` | CV source (rebuild the PDF with `npm run cv`) |

@@ -120,7 +120,7 @@ export const si: Dictionary = {
     intro: "සැබෑ පරිගණක මත යටිතල පහසුකම් සහ පද්ධති පරිපාලනය පුහුණු වන කුඩා, ඉලක්කගත ව්‍යාපෘති.",
     sourceCode: "විද්‍යාගාර ගොනු",
     techStack: "භාවිත තාක්ෂණ",
-    video: "Demo වීඩියෝව",
+    cover: "ආවරණ රූපය",
     watchDemo: "Demo එක බලන්න",
     previousSlide: "පෙර ස්ලයිඩය",
     nextSlide: "ඊළඟ ස්ලයිඩය",

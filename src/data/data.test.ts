@@ -42,9 +42,8 @@ describe("labs data", () => {
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it.each(labs)("$name has its video and poster on disk", (l) => {
-    expect(existsSync(publicFile(l.video))).toBe(true);
-    expect(existsSync(publicFile(l.poster))).toBe(true);
+  it.each(labs)("$name has its cover and slides on disk", (l) => {
+    expect(existsSync(publicFile(l.cover))).toBe(true);
     for (const src of l.slides) expect(existsSync(publicFile(src))).toBe(true);
   });
 

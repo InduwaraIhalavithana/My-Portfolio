@@ -5,14 +5,13 @@ export type LabSlug = keyof Dictionary["labs"]["items"];
 export type Lab = {
   slug: LabSlug;
   name: string;
-  // Both live under public/labs. The poster is 16:9 artwork with text, shown before the video plays.
-  video: string;
-  poster: string;
+  // 16:9 artwork under public/labs, shown first in the slideshow. The full demo lives in the LinkedIn post.
+  cover: string;
   stack: string[];
   repo: string;
   // LinkedIn post with the demo; the button appears only when this is set.
   demo?: string;
-  // Presentation slides shown after the video; captions come from the dictionary, same order.
+  // Presentation slides shown after the cover; captions come from the dictionary, same order.
   slides: string[];
 };
 
@@ -21,8 +20,7 @@ export const labs: Lab[] = [
   {
     slug: "network-automation",
     name: "Network Automation Lab",
-    video: "/labs/network-automation-demo.mp4",
-    poster: "/labs/network-automation-poster.jpg",
+    cover: "/labs/network-automation-cover.jpg",
     stack: ["Ansible", "Netplan", "YAML", "SSH", "Ubuntu Server", "VirtualBox"],
     repo: "https://github.com/InduwaraIhalavithana/Network-Automation-Lab",
     slides: [1, 2, 3, 4, 5, 6].map((n) => `/labs/network-automation/${n}.webp`),
