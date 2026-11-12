@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { labs } from "@/data/labs";
 import { projects } from "@/data/projects";
 import { research } from "@/data/research";
 import { locales } from "./config";
@@ -57,6 +58,7 @@ describe("dictionaries", () => {
   it("labels every project stat and research technology", () => {
     for (const dict of Object.values(all)) {
       for (const p of projects) expect(dict.projects.items[p.slug].stats).toHaveLength(p.stats.length);
+      for (const l of labs) expect(dict.labs.items[l.slug].steps.length).toBeGreaterThan(0);
       for (const r of research) {
         expect(dict.research.items[r.slug].technologies).toHaveLength(r.technologies.length);
       }

@@ -9,6 +9,7 @@ export const si: Dictionary = {
   nav: {
     home: "මුල් පිටුව",
     projects: "ව්‍යාපෘති",
+    labs: "විද්‍යාගාර",
     skills: "කුසලතා",
     research: "පර්යේෂණ",
     about: "මා ගැන",
@@ -85,10 +86,37 @@ export const si: Dictionary = {
       },
     },
   },
+  labs: {
+    eyebrow: "ප්‍රායෝගික විද්‍යාගාර",
+    title: "විද්‍යාගාර සහ demo",
+    intro: "සැබෑ පරිගණක මත යටිතල පහසුකම් සහ පද්ධති පරිපාලනය පුහුණු වන කුඩා, ඉලක්කගත ව්‍යාපෘති.",
+    sourceCode: "විද්‍යාගාර ගොනු",
+    techStack: "භාවිත තාක්ෂණ",
+    video: "Demo වීඩියෝව",
+    stepsTitle: "Demo එකෙන් පෙන්වන දේ",
+    solvedTitle: "අතරමගදී මා විසඳූ ගැටලු",
+    items: {
+      "network-automation": {
+        context: "පාඨමාලා කාර්යය · CST 436-2 පද්ධති පරිපාලනය",
+        tagline: "අතින් සහ ස්වයංක්‍රීයව ජාල සැකසීම",
+        summary:
+          "Ubuntu Server සහ VirtualBox මත VM දෙකක විද්‍යාගාරයක්. මම Netplan මගින් server එකක static IP එක අතින් සැකසුවෙමි; පසුව control node එකක් එක් Ansible playbook එකකින්, server එකට ලොග් නොවී, එම කාර්යයම කළේය.",
+        steps: [
+          "අතින්: server එකේ Netplan YAML ගොනුවක් ලියා එය යෙදීම",
+          "ස්වයංක්‍රීයව: එක් Ansible playbook එකක් SSH හරහා සැකසුම් යවා යොදයි",
+        ],
+        solved: [
+          "Hyper-V නිසා VirtualBox මන්දගාමී වීම",
+          "Clone කළ VM පැරණි ජාල කාඩ්පත් ID රඳවා ගැනීම",
+          "sudo-rs සමඟ Ansible privilege escalation කාලය ඉක්මවීම",
+        ],
+      },
+    },
+  },
   skills: {
     eyebrow: "මෙවලම්",
     title: "මා භාවිත කරන තාක්ෂණ",
-    intro: "මෙහි ඇති සෑම එකක්ම ඉහත ව්‍යාපෘතිවලින් අවම වශයෙන් එකකවත් භාවිත කර ඇත.",
+    intro: "මෙහි ඇති සෑම එකක්ම ඉහත ව්‍යාපෘති හෝ විද්‍යාගාරවලින් අවම වශයෙන් එකකවත් භාවිත කර ඇත.",
     groups: {
       frontend: "Frontend",
       backend: "Backend",
