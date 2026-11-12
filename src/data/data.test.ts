@@ -19,6 +19,10 @@ describe("projects data", () => {
     expect(existsSync(publicFile(p.cover))).toBe(true);
   });
 
+  it.each(projects)("$name has every slideshow screenshot on disk", (p) => {
+    for (const src of p.slides) expect(existsSync(publicFile(src))).toBe(true);
+  });
+
   it.each(projects)("$name links to GitHub over https", (p) => {
     expect(p.repo).toMatch(/^https:\/\/github\.com\//);
   });

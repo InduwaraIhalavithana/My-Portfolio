@@ -42,6 +42,10 @@ export const en = {
     liveDemo: "Live demo",
     techStack: "Tech stack",
     cover: "cover",
+    watchDemo: "Watch demo",
+    previousSlide: "Previous screen",
+    nextSlide: "Next screen",
+    showSlide: "Show screen",
     items: {
       smartagri: {
         tagline: "From crop choice to market sale",
@@ -55,6 +59,14 @@ export const en = {
           "7-day weather for all 25 districts",
         ],
         stats: ["User roles", "Languages", "Districts"],
+        slides: [
+          "Home page",
+          "AI crop recommendation with explanation",
+          "Land owner dashboard",
+          "Marketplace: trader browsing crops",
+          "Order tracking",
+          "7-day district weather",
+        ],
       },
       "sharing-excess": {
         tagline: "Surplus food, shared nearest-first",
@@ -68,6 +80,14 @@ export const en = {
           "Installable PWA, responsive down to 320 px",
         ],
         stats: ["Backend tests", "Frontend tests", "Languages"],
+        slides: [
+          "Home page",
+          "Available food near you",
+          "Map of food listings",
+          "Donor dashboard",
+          "NGO events dashboard",
+          "Mobile view",
+        ],
       },
       conferencehub: {
         tagline: "Run a conference end to end",
@@ -81,6 +101,14 @@ export const en = {
           "Analytics dashboard with a 14-day trend",
         ],
         stats: ["Roles", "Backend tests", "Languages"],
+        slides: [
+          "Home page",
+          "Conference page with registration",
+          "Editor with venue map",
+          "QR ticket",
+          "Check-in desk with live counter",
+          "Analytics dashboard",
+        ],
       },
     },
   },
