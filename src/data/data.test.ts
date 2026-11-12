@@ -41,6 +41,7 @@ describe("labs data", () => {
   it.each(labs)("$name has its video and poster on disk", (l) => {
     expect(existsSync(publicFile(l.video))).toBe(true);
     expect(existsSync(publicFile(l.poster))).toBe(true);
+    for (const src of l.slides) expect(existsSync(publicFile(src))).toBe(true);
   });
 
   it.each(labs)("$name links to GitHub over https", (l) => {
