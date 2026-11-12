@@ -26,5 +26,6 @@ export const labs: Lab[] = [
     stack: ["Ansible", "Netplan", "YAML", "SSH", "Ubuntu Server", "VirtualBox"],
     repo: "https://github.com/InduwaraIhalavithana/Network-Automation-Lab",
     slides: [1, 2, 3, 4, 5, 6].map((n) => `/labs/network-automation/${n}.webp`),
+    demo: "https://lnkd.in/p/gkB9Xt8K",
   },
 ];

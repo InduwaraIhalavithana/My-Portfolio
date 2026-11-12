@@ -23,6 +23,10 @@ describe("projects data", () => {
     for (const src of p.slides) expect(existsSync(publicFile(src))).toBe(true);
   });
 
+  it.each(projects)("$name links its demo post over https", (p) => {
+    if (p.demo) expect(p.demo).toMatch(/^https:\/\//);
+  });
+
   it.each(projects)("$name links to GitHub over https", (p) => {
     expect(p.repo).toMatch(/^https:\/\/github\.com\//);
   });
