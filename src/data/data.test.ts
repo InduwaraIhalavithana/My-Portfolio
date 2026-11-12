@@ -19,6 +19,14 @@ describe("projects data", () => {
     expect(existsSync(publicFile(p.cover))).toBe(true);
   });
 
+  it.each(projects)("$name has every slideshow screenshot on disk", (p) => {
+    for (const src of p.slides) expect(existsSync(publicFile(src))).toBe(true);
+  });
+
+  it.each(projects)("$name links its demo post over https", (p) => {
+    if (p.demo) expect(p.demo).toMatch(/^https:\/\//);
+  });
+
   it.each(projects)("$name links to GitHub over https", (p) => {
     expect(p.repo).toMatch(/^https:\/\/github\.com\//);
   });
@@ -37,6 +45,7 @@ describe("labs data", () => {
   it.each(labs)("$name has its video and poster on disk", (l) => {
     expect(existsSync(publicFile(l.video))).toBe(true);
     expect(existsSync(publicFile(l.poster))).toBe(true);
+    for (const src of l.slides) expect(existsSync(publicFile(src))).toBe(true);
   });
 
   it.each(labs)("$name links to GitHub over https", (l) => {

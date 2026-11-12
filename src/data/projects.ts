@@ -13,7 +13,13 @@ export type Project = {
   stats: string[];
   repo: string;
   live?: string;
+  // LinkedIn post with the demo video; the button appears only when this is set.
+  demo?: string;
+  // Screenshots shown after the cover in the card's slideshow; captions come from the dictionary, same order.
+  slides: string[];
 };
+
+const shots = (slug: string) => [1, 2, 3, 4, 5, 6].map((n) => `/projects/${slug}/${n}.webp`);
 
 // Facts here come from each project's README; keep them in sync when a project changes.
 export const projects: Project[] = [
@@ -22,6 +28,8 @@ export const projects: Project[] = [
     name: "SmartAgri",
     accent: "agri",
     cover: "/projects/smartagri-cover.png",
+    slides: shots("smartagri"),
+    demo: "https://lnkd.in/p/g42mwwTA",
     stack: ["React", "FastAPI", "PostgreSQL", "XGBoost", "Docker", "GitHub Actions", "Azure"],
     stats: ["4", "3", "25"],
     repo: "https://github.com/Ravindu08/SmartAgri",
@@ -31,6 +39,8 @@ export const projects: Project[] = [
     name: "Sharing Excess",
     accent: "share",
     cover: "/projects/sharing-excess-cover.png",
+    slides: shots("sharing-excess"),
+    demo: "https://lnkd.in/p/g4cekeV8",
     stack: ["React", "TypeScript", "FastAPI", "PostgreSQL", "Docker", "GitHub Actions"],
     stats: ["187", "56", "3"],
     repo: "https://github.com/InduwaraIhalavithana/Sharing-Excess",
@@ -40,6 +50,8 @@ export const projects: Project[] = [
     name: "ConferenceHub",
     accent: "conf",
     cover: "/projects/conferencehub-cover.png",
+    slides: shots("conferencehub"),
+    demo: "https://lnkd.in/p/g9dPTWVa",
     stack: ["React", "TypeScript", "FastAPI", "PostgreSQL", "Leaflet", "Docker", "GitHub Actions"],
     stats: ["3", "85", "3"],
     repo: "https://github.com/InduwaraIhalavithana/Conference-Manager",

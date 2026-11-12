@@ -1,16 +1,16 @@
-import Image from "next/image";
-import { Check } from "lucide-react";
+import { Check, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Accent, Project } from "@/data/projects";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import { GitHubIcon } from "@/components/brand-icons";
+import { ProjectSlideshow } from "@/components/project-slideshow";
 import { Button } from "@/components/ui/button";
 
 // Tailwind needs full class names in the source, so each accent spells them out.
-const accentClasses: Record<Accent, { text: string; soft: string; border: string; glow: string }> = {
-  agri: { text: "text-agri", soft: "bg-agri/10", border: "border-agri/30", glow: "hover:shadow-agri/20" },
-  share: { text: "text-share", soft: "bg-share/10", border: "border-share/30", glow: "hover:shadow-share/20" },
-  conf: { text: "text-conf", soft: "bg-conf/10", border: "border-conf/30", glow: "hover:shadow-conf/20" },
+const accentClasses: Record<Accent, { text: string; soft: string; border: string; glow: string; dot: string }> = {
+  agri: { text: "text-agri", soft: "bg-agri/10", border: "border-agri/30", glow: "hover:shadow-agri/20", dot: "bg-agri" },
+  share: { text: "text-share", soft: "bg-share/10", border: "border-share/30", glow: "hover:shadow-share/20", dot: "bg-share" },
+  conf: { text: "text-conf", soft: "bg-conf/10", border: "border-conf/30", glow: "hover:shadow-conf/20", dot: "bg-conf" },
 };
 
 type ProjectCardProps = {
@@ -30,7 +30,7 @@ export function ProjectCard({ project, labels, flip = false }: ProjectCardProps)
         a.glow,
       )}
     >
-      {/* Covers are 16:9 artwork with text, so they are never cropped; the column fills with the accent. */}
+      {/* The cover comes first, then screenshots; the column fills with the accent. */}
       <div className={cn("relative flex flex-col justify-center gap-4 p-4 sm:p-6", a.soft, flip && "lg:order-2")}>
         <span
           className={cn(
@@ -40,15 +40,20 @@ export function ProjectCard({ project, labels, flip = false }: ProjectCardProps)
         >
           {text.context}
         </span>
-        <div className="relative aspect-video overflow-hidden rounded-2xl border shadow-lg">
-          <Image
-            src={project.cover}
-            alt={`${project.name} ${labels.cover}`}
-            fill
-            sizes="(min-width: 1024px) 540px, 100vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
+        <ProjectSlideshow
+          slides={[
+            { src: project.cover, alt: `${project.name} ${labels.cover}`, fit: "cover" },
+            ...project.slides.map((src, i) => ({
+              src,
+              alt: `${project.name}: ${text.slides[i]}`,
+              caption: text.slides[i],
+              fit: "contain" as const,
+            })),
+          ]}
+          accentText={a.text}
+          accentDot={a.dot}
+          labels={{ previous: labels.previousSlide, next: labels.nextSlide, show: labels.showSlide }}
+        />
       </div>
 
       <div className="flex flex-col p-6 sm:p-8">
@@ -88,6 +93,13 @@ export function ProjectCard({ project, labels, flip = false }: ProjectCardProps)
               <GitHubIcon /> {labels.sourceCode}
             </a>
           </Button>
+          {project.demo && (
+            <Button variant="outline" asChild>
+              <a href={project.demo} target="_blank" rel="noreferrer">
+                <Play /> {labels.watchDemo}
+              </a>
+            </Button>
+          )}
           {project.live && (
             <Button asChild>
               <a href={project.live} target="_blank" rel="noreferrer">

@@ -10,6 +10,10 @@ export type Lab = {
   poster: string;
   stack: string[];
   repo: string;
+  // LinkedIn post with the demo; the button appears only when this is set.
+  demo?: string;
+  // Presentation slides shown after the video; captions come from the dictionary, same order.
+  slides: string[];
 };
 
 // Smaller hands-on builds; facts come from each lab's README.
@@ -21,5 +25,7 @@ export const labs: Lab[] = [
     poster: "/labs/network-automation-poster.jpg",
     stack: ["Ansible", "Netplan", "YAML", "SSH", "Ubuntu Server", "VirtualBox"],
     repo: "https://github.com/InduwaraIhalavithana/Network-Automation-Lab",
+    slides: [1, 2, 3, 4, 5, 6].map((n) => `/labs/network-automation/${n}.webp`),
+    demo: "https://lnkd.in/p/gkB9Xt8K",
   },
 ];

@@ -1,8 +1,9 @@
-import { Check, Wrench } from "lucide-react";
+import { Check, Play, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { labs } from "@/data/labs";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import { GitHubIcon } from "@/components/brand-icons";
+import { ProjectSlideshow } from "@/components/project-slideshow";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
@@ -28,16 +29,20 @@ export function Labs({ dict }: { dict: Dictionary }) {
                 {/* min-w-0 lets long Sinhala or Tamil words wrap instead of widening the grid. */}
                 <article className="grid grid-cols-1 overflow-hidden rounded-3xl border bg-card shadow-sm break-words lg:grid-cols-[1.15fr_1fr] [&>*]:min-w-0">
                   <div className="flex flex-col justify-center gap-4 bg-conf/10 p-4 sm:p-6">
-                    {/* The video has no sound; captions are burned in. preload="none" keeps the page light. */}
-                    <video
-                      className="aspect-video w-full rounded-2xl border bg-black shadow-lg"
-                      src={lab.video}
-                      poster={lab.poster}
-                      controls
-                      playsInline
-                      muted
-                      preload="none"
-                      aria-label={`${lab.name}: ${t.video}`}
+                    {/* The video comes first (it has no sound; captions are burned in), then the presentation slides. */}
+                    <ProjectSlideshow
+                      slides={[
+                        { src: lab.poster, video: lab.video, alt: `${lab.name}: ${t.video}`, caption: t.video, fit: "cover" },
+                        ...lab.slides.map((src, i) => ({
+                          src,
+                          alt: `${lab.name}: ${text.slides[i]}`,
+                          caption: text.slides[i],
+                          fit: "contain" as const,
+                        })),
+                      ]}
+                      accentText="text-conf"
+                      accentDot="bg-conf"
+                      labels={{ previous: t.previousSlide, next: t.nextSlide, show: t.showSlide }}
                     />
                   </div>
 
@@ -89,6 +94,13 @@ export function Labs({ dict }: { dict: Dictionary }) {
                           <GitHubIcon /> {t.sourceCode}
                         </a>
                       </Button>
+                      {lab.demo && (
+                        <Button variant="outline" asChild>
+                          <a href={lab.demo} target="_blank" rel="noreferrer">
+                            <Play /> {t.watchDemo}
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </article>

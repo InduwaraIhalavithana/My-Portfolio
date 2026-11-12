@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { projects } from "@/data/projects";
 import { en } from "@/i18n/dictionaries/en";
@@ -32,6 +32,23 @@ describe("ProjectCard", () => {
   it("hides the live demo button when there is no live URL", () => {
     render(<ProjectCard project={{ ...project, live: undefined }} labels={en.projects} />);
     expect(screen.queryByRole("link", { name: /live demo/i })).not.toBeInTheDocument();
+  });
+
+  it("shows the demo button only when a demo link is set", () => {
+    const { unmount } = render(<ProjectCard project={{ ...project, demo: undefined }} labels={en.projects} />);
+    expect(screen.queryByRole("link", { name: /watch demo/i })).not.toBeInTheDocument();
+    unmount();
+    const demo = "https://www.linkedin.com/posts/example";
+    render(<ProjectCard project={{ ...project, demo }} labels={en.projects} />);
+    expect(screen.getByRole("link", { name: /watch demo/i })).toHaveAttribute("href", demo);
+  });
+
+  it("starts the slideshow on the cover and moves to the first screenshot", () => {
+    render(<ProjectCard project={project} labels={en.projects} />);
+    expect(screen.getByAltText(`${project.name} ${en.projects.cover}`)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: en.projects.nextSlide }));
+    expect(screen.getByAltText(`${project.name}: ${text.slides[0]}`)).toBeInTheDocument();
+    expect(screen.getByText(text.slides[0])).toBeInTheDocument();
   });
 
   it("renders in Sinhala", () => {
