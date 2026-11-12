@@ -12,8 +12,6 @@ export type Slide = {
   caption?: string;
   // Covers are 16:9 artwork and fill the frame; screenshots are wider and are letterboxed instead.
   fit: "cover" | "contain";
-  // A slide can be a video; `src` is then its poster image.
-  video?: string;
 };
 
 type ProjectSlideshowProps = {
@@ -51,31 +49,17 @@ export function ProjectSlideshow({ slides, accentText, accentDot, labels }: Proj
       }}
     >
       <div className="relative aspect-video overflow-hidden rounded-2xl border bg-[#0b1220] shadow-lg">
-        {slide.video ? (
-          <video
-            key={slide.video}
-            className="size-full object-cover"
-            src={slide.video}
-            poster={slide.src}
-            controls
-            playsInline
-            muted
-            preload="none"
-            aria-label={slide.alt}
-          />
-        ) : (
-          <Image
-            key={slide.src}
-            src={slide.src}
-            alt={slide.alt}
-            fill
-            sizes="(min-width: 1024px) 540px, 100vw"
-            className={cn(
-              "animate-in fade-in duration-300",
-              slide.fit === "cover" ? "object-cover transition-transform duration-700 group-hover:scale-105" : "object-contain",
-            )}
-          />
-        )}
+        <Image
+          key={slide.src}
+          src={slide.src}
+          alt={slide.alt}
+          fill
+          sizes="(min-width: 1024px) 540px, 100vw"
+          className={cn(
+            "animate-in fade-in duration-300",
+            slide.fit === "cover" ? "object-cover transition-transform duration-700 group-hover:scale-105" : "object-contain",
+          )}
+        />
         {count > 1 && (
           <>
             <button

@@ -118,7 +118,7 @@ export const en = {
     intro: "Smaller, focused builds where I practise infrastructure and system administration on real machines.",
     sourceCode: "Lab files",
     techStack: "Tech stack",
-    video: "Demo video",
+    cover: "cover",
     watchDemo: "Watch demo",
     previousSlide: "Previous slide",
     nextSlide: "Next slide",
