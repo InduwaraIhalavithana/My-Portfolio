@@ -14,5 +14,5 @@ export const site = {
 } as const;
 
 // Page sections in order; ids double as dictionary keys under `nav`.
-export const sectionIds = ["projects", "skills", "research", "about", "contact"] as const;
+export const sectionIds = ["projects", "labs", "skills", "research", "about", "contact"] as const;
 export type SectionId = (typeof sectionIds)[number];

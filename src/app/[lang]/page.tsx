@@ -7,6 +7,7 @@ import { SideRails } from "@/components/side-rails";
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
 import { Hero } from "@/components/sections/hero";
+import { Labs } from "@/components/sections/labs";
 import { Projects } from "@/components/sections/projects";
 import { Research } from "@/components/sections/research";
 import { Skills } from "@/components/sections/skills";
@@ -23,6 +24,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <main className="flex-1">
         <Hero dict={dict} />
         <Projects dict={dict} />
+        <Labs dict={dict} />
         <Skills dict={dict} />
         <Research dict={dict} />
         <About dict={dict} />

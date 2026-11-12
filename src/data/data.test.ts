@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { labs } from "./labs";
 import { projects } from "./projects";
 import { research } from "./research";
 import { skillGroups } from "./skills";
@@ -24,6 +25,22 @@ describe("projects data", () => {
 
   it.each(projects)("$name has exactly three stat tiles", (p) => {
     expect(p.stats).toHaveLength(3);
+  });
+});
+
+describe("labs data", () => {
+  it("has unique slugs", () => {
+    const slugs = labs.map((l) => l.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
+  it.each(labs)("$name has its video and poster on disk", (l) => {
+    expect(existsSync(publicFile(l.video))).toBe(true);
+    expect(existsSync(publicFile(l.poster))).toBe(true);
+  });
+
+  it.each(labs)("$name links to GitHub over https", (l) => {
+    expect(l.repo).toMatch(/^https:\/\/github\.com\//);
   });
 });
 
