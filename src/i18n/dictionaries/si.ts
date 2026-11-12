@@ -97,7 +97,6 @@ export const si: Dictionary = {
     solvedTitle: "අතරමගදී මා විසඳූ ගැටලු",
     items: {
       "network-automation": {
-        context: "පාඨමාලා කාර්යය · CST 436-2 පද්ධති පරිපාලනය",
         tagline: "අතින් සහ ස්වයංක්‍රීයව ජාල සැකසීම",
         summary:
           "Ubuntu Server සහ VirtualBox මත VM දෙකක විද්‍යාගාරයක්. මම Netplan මගින් server එකක static IP එක අතින් සැකසුවෙමි; පසුව control node එකක් එක් Ansible playbook එකකින්, server එකට ලොග් නොවී, එම කාර්යයම කළේය.",

@@ -28,9 +28,6 @@ export function Labs({ dict }: { dict: Dictionary }) {
                 {/* min-w-0 lets long Sinhala or Tamil words wrap instead of widening the grid. */}
                 <article className="grid grid-cols-1 overflow-hidden rounded-3xl border bg-card shadow-sm break-words lg:grid-cols-[1.15fr_1fr] [&>*]:min-w-0">
                   <div className="flex flex-col justify-center gap-4 bg-conf/10 p-4 sm:p-6">
-                    <span className="w-fit rounded-full border bg-background/85 px-3 py-1 text-xs font-semibold text-conf backdrop-blur">
-                      {text.context}
-                    </span>
                     {/* The video has no sound; captions are burned in. preload="none" keeps the page light. */}
                     <video
                       className="aspect-video w-full rounded-2xl border bg-black shadow-lg"

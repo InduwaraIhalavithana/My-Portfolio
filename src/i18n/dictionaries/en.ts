@@ -95,7 +95,6 @@ export const en = {
     solvedTitle: "Problems I solved along the way",
     items: {
       "network-automation": {
-        context: "Coursework · CST 436-2 System Administration",
         tagline: "Manual vs automated network setup",
         summary:
           "A two-VM lab on Ubuntu Server and VirtualBox. I set a server's static IP by hand with Netplan, then had a control node do the same job with one Ansible playbook, without logging in to the server.",
