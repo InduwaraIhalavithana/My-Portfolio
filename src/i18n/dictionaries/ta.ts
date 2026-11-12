@@ -97,7 +97,6 @@ export const ta: Dictionary = {
     solvedTitle: "வழியில் நான் தீர்த்த சிக்கல்கள்",
     items: {
       "network-automation": {
-        context: "பாடநெறிப் பணி · CST 436-2 கணினி நிர்வாகம்",
         tagline: "கைமுறை மற்றும் தானியங்கி நெட்வொர்க் அமைப்பு",
         summary:
           "Ubuntu Server மற்றும் VirtualBox-இல் இரண்டு VM-கள் கொண்ட ஆய்வகம். Netplan மூலம் ஒரு server-இன் static IP-ஐ கைமுறையாக அமைத்தேன்; பின்னர் ஒரு control node அதே வேலையை ஒரே Ansible playbook மூலம், server-இல் உள்நுழையாமலேயே செய்தது.",
