@@ -7,6 +7,7 @@ export const en = {
   nav: {
     home: "Home",
     projects: "Projects",
+    labs: "Labs",
     skills: "Skills",
     research: "Research",
     about: "About",
@@ -83,10 +84,37 @@ export const en = {
       },
     },
   },
+  labs: {
+    eyebrow: "Hands-on labs",
+    title: "Labs and demos",
+    intro: "Smaller, focused builds where I practise infrastructure and system administration on real machines.",
+    sourceCode: "Lab files",
+    techStack: "Tech stack",
+    video: "Demo video",
+    stepsTitle: "What the demo shows",
+    solvedTitle: "Problems I solved along the way",
+    items: {
+      "network-automation": {
+        context: "Coursework · CST 436-2 System Administration",
+        tagline: "Manual vs automated network setup",
+        summary:
+          "A two-VM lab on Ubuntu Server and VirtualBox. I set a server's static IP by hand with Netplan, then had a control node do the same job with one Ansible playbook, without logging in to the server.",
+        steps: [
+          "Manual: write a Netplan YAML file on the server and apply it",
+          "Automated: one Ansible playbook pushes and applies the settings over SSH",
+        ],
+        solved: [
+          "Hyper-V slowing VirtualBox down",
+          "Cloned VMs keeping the old network card IDs",
+          "Ansible timing out on privilege escalation with sudo-rs",
+        ],
+      },
+    },
+  },
   skills: {
     eyebrow: "Toolbox",
     title: "What I work with",
-    intro: "Every item here is used in at least one of the projects above.",
+    intro: "Every item here is used in at least one of the projects or labs above.",
     groups: {
       frontend: "Frontend",
       backend: "Backend",

@@ -6,7 +6,7 @@ export type SkillGroup = {
   items: string[];
 };
 
-// Drawn from the stacks of the featured projects. Tool names are the same in every language.
+// Drawn from the stacks of the featured projects and labs. Tool names are the same in every language.
 export const skillGroups: SkillGroup[] = [
   {
     key: "frontend",
@@ -26,7 +26,7 @@ export const skillGroups: SkillGroup[] = [
   {
     key: "devops",
     color: "share",
-    items: ["Docker", "Docker Compose", "GitHub Actions", "nginx", "Azure VMs", "Let's Encrypt"],
+    items: ["Docker", "Docker Compose", "GitHub Actions", "nginx", "Azure VMs", "Let's Encrypt", "Ansible", "Linux (Ubuntu Server)", "VirtualBox"],
   },
   {
     key: "quality",
