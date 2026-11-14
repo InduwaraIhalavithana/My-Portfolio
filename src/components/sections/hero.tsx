@@ -8,7 +8,7 @@ import { FadeIn } from "@/components/fade-in";
 import { Button } from "@/components/ui/button";
 
 // Values only; labels come from the dictionary in the same order.
-const statValues = [String(projects.length), "3", "240+", "10+"];
+const statValues = [String(projects.length), "3", "240+", "10"];
 
 const floatingChips = [
   { label: "React", className: "left-0 top-8 text-conf sm:-left-4" },

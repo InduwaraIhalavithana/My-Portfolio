@@ -33,7 +33,7 @@ All versions pinned exactly when the project is scaffolded.
 1. **Hero** — name, one-line focus statement, CTA buttons (Projects, CV, Contact), GitHub/LinkedIn icons
 2. **About** — your story and passion, photo (reuse `creator.webp`), quick facts (university, degree, location)
 3. **Featured projects** — rich cards, each opening a case-study page:
-   - **SmartAgri** — agri platform, 4 roles, ML crop recommendation with XAI, marketplace, EN/SI/TA, live on Azure, CI/CD
+   - **SmartAgri** — agri platform, 3 roles, ML crop recommendation with XAI, marketplace, EN/SI/TA, live on Azure, CI/CD
    - **Sharing Excess** — food redistribution, donors / recipients / NGOs, district-first, events, payments
    - **ConferenceHub** — conference management, QR tickets + check-in, waitlist, email codes, analytics
    - Each case study: problem → my role → architecture diagram → key features → screenshots / demo video → tests & CI → what I learned → links (repo, live, video)

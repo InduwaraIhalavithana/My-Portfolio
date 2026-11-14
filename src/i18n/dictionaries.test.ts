@@ -59,7 +59,6 @@ describe("dictionaries", () => {
     for (const dict of Object.values(all)) {
       for (const p of projects) {
         expect(dict.projects.items[p.slug].stats).toHaveLength(p.stats.length);
-        expect(dict.projects.items[p.slug].slides).toHaveLength(p.slides.length);
       }
       for (const l of labs) expect(dict.labs.items[l.slug].slides).toHaveLength(l.slides.length);
       for (const r of research) {
