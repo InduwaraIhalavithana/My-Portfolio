@@ -60,47 +60,46 @@ export function ProjectSlideshow({ slides, accentText, accentDot, labels }: Proj
             slide.fit === "cover" ? "object-cover transition-transform duration-700 group-hover:scale-105" : "object-contain",
           )}
         />
+      </div>
+
+      {/* Arrows sit beside the dots, not on the image, so they never cover the artwork's own text. */}
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+        <p className={cn("min-h-5 min-w-0 text-sm font-medium", accentText)} aria-live="polite">
+          {slide.caption ?? " "}
+        </p>
         {count > 1 && (
-          <>
+          <div className="flex shrink-0 items-center justify-center gap-2">
             <button
               type="button"
               onClick={() => go(index - 1)}
               aria-label={labels.previous}
-              className="absolute top-1/2 left-2 grid size-9 -translate-y-1/2 place-items-center rounded-full bg-background/80 shadow backdrop-blur transition hover:bg-background"
+              className="grid size-8 place-items-center rounded-full border bg-background/60 text-muted-foreground transition hover:bg-background hover:text-foreground"
             >
-              <ChevronLeft className="size-5" />
+              <ChevronLeft className="size-4" />
             </button>
+            <div className="flex gap-1.5">
+              {slides.map((s, i) => (
+                <button
+                  key={s.src}
+                  type="button"
+                  onClick={() => go(i)}
+                  aria-label={`${labels.show} ${i + 1} / ${count}`}
+                  aria-current={i === index}
+                  className={cn(
+                    "h-2 rounded-full transition-all",
+                    i === index ? cn("w-5", accentDot) : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60",
+                  )}
+                />
+              ))}
+            </div>
             <button
               type="button"
               onClick={() => go(index + 1)}
               aria-label={labels.next}
-              className="absolute top-1/2 right-2 grid size-9 -translate-y-1/2 place-items-center rounded-full bg-background/80 shadow backdrop-blur transition hover:bg-background"
+              className="grid size-8 place-items-center rounded-full border bg-background/60 text-muted-foreground transition hover:bg-background hover:text-foreground"
             >
-              <ChevronRight className="size-5" />
+              <ChevronRight className="size-4" />
             </button>
-          </>
-        )}
-      </div>
-
-      <div className="flex min-h-6 items-center justify-between gap-3">
-        <p className={cn("min-w-0 text-sm font-medium", accentText)} aria-live="polite">
-          {slide.caption ?? " "}
-        </p>
-        {count > 1 && (
-          <div className="flex shrink-0 gap-1.5">
-            {slides.map((s, i) => (
-              <button
-                key={s.src}
-                type="button"
-                onClick={() => go(i)}
-                aria-label={`${labels.show} ${i + 1} / ${count}`}
-                aria-current={i === index}
-                className={cn(
-                  "h-2 rounded-full transition-all",
-                  i === index ? cn("w-5", accentDot) : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60",
-                )}
-              />
-            ))}
           </div>
         )}
       </div>
