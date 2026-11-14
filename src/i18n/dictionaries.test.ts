@@ -64,6 +64,7 @@ describe("dictionaries", () => {
       for (const l of labs) expect(dict.labs.items[l.slug].slides).toHaveLength(l.slides.length);
       for (const r of research) {
         expect(dict.research.items[r.slug].technologies).toHaveLength(r.technologies.length);
+        expect(dict.research.items[r.slug].slides).toHaveLength(r.slides.length);
       }
     }
   });

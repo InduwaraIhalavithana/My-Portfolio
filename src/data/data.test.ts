@@ -58,6 +58,11 @@ describe("research data", () => {
     expect(existsSync(publicFile(r.poster.pdf))).toBe(true);
   });
 
+  it.each(research)("$slug has its presentation slides on disk", (r) => {
+    expect(r.slides.length).toBeGreaterThan(0);
+    for (const src of r.slides) expect(existsSync(publicFile(src))).toBe(true);
+  });
+
   it.each(research)("$slug lists the site owner as an author", (r) => {
     expect(r.authors).toContain("P.I. Ihalavithana");
   });
