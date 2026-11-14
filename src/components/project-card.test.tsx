@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { projects } from "@/data/projects";
 import { en } from "@/i18n/dictionaries/en";
@@ -43,12 +43,11 @@ describe("ProjectCard", () => {
     expect(screen.getByRole("link", { name: /watch demo/i })).toHaveAttribute("href", demo);
   });
 
-  it("starts the slideshow on the cover and moves to the first screenshot", () => {
+  it("shows only the cover image, with no slideshow controls", () => {
     render(<ProjectCard project={project} labels={en.projects} />);
-    expect(screen.getByAltText(`${project.name} ${en.projects.cover}`)).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: en.projects.nextSlide }));
-    expect(screen.getByAltText(`${project.name}: ${text.slides[0]}`)).toBeInTheDocument();
-    expect(screen.getByText(text.slides[0])).toBeInTheDocument();
+    expect(screen.getByAltText(`${project.name} ${en.projects.cover}`)).toHaveAttribute("src", project.cover);
+    expect(screen.getAllByRole("img")).toHaveLength(1);
+    expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
 
   it("renders in Sinhala", () => {

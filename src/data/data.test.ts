@@ -19,10 +19,6 @@ describe("projects data", () => {
     expect(existsSync(publicFile(p.cover))).toBe(true);
   });
 
-  it.each(projects)("$name has every slideshow screenshot on disk", (p) => {
-    for (const src of p.slides) expect(existsSync(publicFile(src))).toBe(true);
-  });
-
   it.each(projects)("$name links its demo post over https", (p) => {
     if (p.demo) expect(p.demo).toMatch(/^https:\/\//);
   });
