@@ -109,7 +109,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
                 alt={hero.portraitAlt}
                 fill
                 priority
-                sizes="(min-width: 1024px) 384px, 80vw"
+                sizes="(min-width: 1280px) 448px, (min-width: 1024px) 384px, 80vw"
                 className="object-cover"
               />
             </div>
