@@ -4,7 +4,8 @@
   Output: public/cv/Induwara-Ihalavithana-CV.pdf (linked from the site).
   Layout: two fixed A4 sheets, each a navy sidebar + white main column. Content is split between
   the sheets by hand (Chrome leaves print margins unpainted, so a flowing layout cannot keep the
-  sidebar full-height). Sheet 1: profile, highlights, education, research. Sheet 2: projects.
+  sidebar full-height). Sheet 1: profile, education, research, labs. Sheet 2: projects.
+  Type: Space Grotesk for the name and headings, Geist for body text (the site's fonts), from cv/fonts.
   If you add content, check that each sheet still fits.
 -->
 <html lang="en">
@@ -12,6 +13,25 @@
 <meta charset="utf-8">
 <title>Pawara Induwara Ihalavithana - CV</title>
 <style>
+  @font-face {
+    font-family: "Geist";
+    src: url("fonts/geist-latin.woff2") format("woff2");
+    font-weight: 100 900;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+      U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Geist";
+    src: url("fonts/geist-latin-ext.woff2") format("woff2");
+    font-weight: 100 900;
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF,
+      U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    src: url("fonts/space-grotesk-latin.woff2") format("woff2");
+    font-weight: 300 700;
+  }
   :root {
     --navy: #1c3152;
     --navy-soft: #26406a;
@@ -24,20 +44,24 @@
     --teal: #2f80a9;
     --side-muted: #c3d0e3;
     --sidebar: 64mm;
+    /* type: titles and subtitles in Space Grotesk, body in Geist */
+    --display: "Space Grotesk", "Segoe UI", Helvetica, Arial, sans-serif;
+    --text: "Geist", "Segoe UI", Helvetica, Arial, sans-serif;
   }
   @page { size: A4; margin: 0; }
   * { box-sizing: border-box; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body {
     margin: 0;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 9.6pt;
-    line-height: 1.5;
+    font-family: var(--text);
+    font-size: 9.5pt;
+    line-height: 1.52;
     color: var(--body);
   }
   a { color: inherit; text-decoration: none; }
   p { margin: 0; }
-  b { color: var(--ink); }
+  b { font-weight: 600; color: var(--ink); }
+  h1, h2, h3 { font-family: var(--display); }
 
   .sheet {
     display: grid;
@@ -59,34 +83,37 @@
     object-fit: cover;
     border: 1.2mm solid #fff;
   }
-  .name { margin: 0; font-size: 19pt; line-height: 1.15; font-weight: 700; color: #fff; }
-  .tagline { margin-top: 2.5mm; font-size: 9.2pt; line-height: 1.4; color: #dfe7f2; }
+  .name { margin: 0; font-size: 21pt; line-height: 1.1; font-weight: 700; letter-spacing: -0.3px; color: #fff; }
+  .tagline { margin-top: 3mm; font-size: 8.8pt; line-height: 1.4; color: #dfe7f2; }
+  .tagline b { display: block; margin-bottom: 0.6mm; font-family: var(--display); font-size: 10.6pt; font-weight: 600; color: #fff; }
   aside h2 {
     margin: 7mm 0 3mm;
     padding-bottom: 1.4mm;
     border-bottom: 0.6pt solid var(--navy-line);
-    font-size: 10pt;
-    letter-spacing: 1.2px;
+    font-size: 9.6pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
     color: #fff;
   }
   aside > h2:first-child { margin-top: 2mm; }
-  .contact div { margin-bottom: 2.4mm; font-size: 8.6pt; line-height: 1.35; word-break: break-all; }
+  .contact div { margin-bottom: 2.4mm; font-size: 8.1pt; line-height: 1.35; word-break: break-all; }
   .contact b {
     display: block;
     margin-bottom: 0.3mm;
-    font-size: 7.2pt;
+    font-size: 6.9pt;
+    font-weight: 600;
     letter-spacing: 0.9px;
     text-transform: uppercase;
     color: #fff;
   }
   .skill { margin-bottom: 3.2mm; }
-  .skill h3 { margin: 0 0 0.8mm; font-size: 9pt; color: #fff; }
-  .skill p { font-size: 8.6pt; line-height: 1.5; }
+  .skill h3 { margin: 0 0 0.8mm; font-size: 9.2pt; font-weight: 600; color: #fff; }
+  .skill p { font-size: 8.5pt; line-height: 1.5; }
   aside ul { margin: 0; padding-left: 12px; font-size: 8.8pt; line-height: 1.45; }
   aside li { margin-bottom: 1.6mm; }
   aside li::marker { color: #8fb7e0; }
   .item { margin-bottom: 2.6mm; font-size: 8.8pt; line-height: 1.4; }
-  .item b { display: block; color: #fff; font-weight: 700; }
+  .item b { display: block; color: #fff; font-weight: 600; }
 
   /* ---------- Main column ---------- */
   main { padding: 0 10mm 8mm 9mm; }
@@ -97,29 +124,26 @@
     padding-bottom: 1mm;
     border-bottom: 1.2pt solid var(--blue);
     font-size: 12.5pt;
-    letter-spacing: 1px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
     color: var(--navy);
     text-transform: uppercase;
   }
-  .lead { font-size: 9.8pt; line-height: 1.6; }
+  .lead { font-size: 9.9pt; line-height: 1.62; }
 
-  .glance { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; }
-  .glance div { padding: 2.6mm 2.4mm; border-radius: 1.6mm; background: var(--blue-soft); border-left: 1mm solid var(--blue); }
-  .glance strong { display: block; font-size: 15pt; line-height: 1.1; color: var(--navy); }
-  .glance span { display: block; margin-top: 0.8mm; font-size: 7.8pt; line-height: 1.3; color: var(--muted); }
 
   .entry + .entry { margin-top: 3.5mm; }
   .head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
-  main h3 { margin: 0; font-size: 10.6pt; line-height: 1.35; color: var(--blue); }
-  .when { flex-shrink: 0; font-size: 8.4pt; font-weight: 700; color: var(--muted); }
-  .desc { margin-top: 0.6mm; font-style: italic; color: var(--muted); }
+  main h3 { margin: 0; font-size: 11.2pt; line-height: 1.32; font-weight: 600; color: var(--blue); }
+  .when { flex-shrink: 0; font-size: 8.4pt; font-weight: 600; color: var(--muted); }
+  .desc { margin-top: 0.6mm; font-size: 9.2pt; color: var(--muted); }
   .link { margin-top: 0.4mm; font-size: 8.2pt; color: var(--blue); }
   .tags { display: flex; flex-wrap: wrap; gap: 1.4mm; margin-top: 1.6mm; }
   .tags span {
     padding: 0.3mm 2mm;
     border-radius: 3mm;
     font-size: 7.6pt;
-    font-weight: 700;
+    font-weight: 600;
     background: var(--blue-soft);
     color: var(--blue);
   }
@@ -147,7 +171,7 @@
   <aside>
     <img class="photo" src="../public/images/induwara.webp" alt="">
     <h1 class="name">Pawara<br>Induwara<br>Ihalavithana</h1>
-    <p class="tagline">Full-stack &amp; AI/ML Engineer<br>Final-year Computer Science undergraduate</p>
+    <p class="tagline"><b>Full-Stack &amp; AI/ML Engineer</b>Final-year Computer Science undergraduate</p>
 
     <h2>CONTACT</h2>
     <div class="contact">
@@ -172,26 +196,17 @@
     <section>
       <h2>Profile</h2>
       <p class="lead">
-        Final-year Computer Science and Technology undergraduate who builds complete, deployed products for real
-        problems in Sri Lanka. I have designed and shipped three <b>full-stack platforms</b> end to end: database,
-        REST API, React frontend, role-based dashboards, automated tests, CI/CD and cloud deployment, each in
-        English, Sinhala and Tamil. I combine web engineering with <b>machine learning</b>, from an XGBoost crop
-        recommender to ongoing research on AI-based counterfeit drug detection.
+        Final-year Computer Science and Technology undergraduate who designs, builds and deploys complete
+        software products for real problems in Sri Lanka. I have shipped three <b>full-stack platforms</b> end
+        to end, covering the data model, REST API, React frontend, role-based dashboards, automated tests,
+        CI/CD and cloud deployment, each one usable in English, Sinhala and Tamil. I pair web engineering with
+        <b>machine learning</b>, from an explainable XGBoost crop recommender to ongoing research on AI-based
+        counterfeit drug detection.
       </p>
-      <p class="lead" style="margin-top:2mm">
-        I became an engineer to help people: I look for problems that affect people's lives and build the
+      <p class="lead" style="margin-top:2.4mm">
+        I became an engineer to help people, so I look for problems that affect daily life and build the
         software that solves them.
       </p>
-    </section>
-
-    <section>
-      <h2>At a Glance</h2>
-      <div class="glance">
-        <div><strong>3</strong><span>full-stack platforms designed and shipped</span></div>
-        <div><strong>243</strong><span>automated tests in one project</span></div>
-        <div><strong>3</strong><span>languages in every app: EN · SI · TA</span></div>
-        <div><strong>11</strong><span>user roles designed across projects</span></div>
-      </div>
     </section>
 
     <section>
@@ -199,12 +214,12 @@
       <div class="entry">
         <div class="head">
           <h3>BSc (Hons) in Computer Science and Technology</h3>
-          <span class="when">2027</span>
+          <span class="when">Expected 2027</span>
         </div>
         <p class="desc">Uva Wellassa University of Sri Lanka · Faculty of Applied Sciences, Badulla</p>
-        <div class="tags"><span>Final year</span><span>Expected graduation 2027</span></div>
-        <p style="margin-top:2mm"><b>Coursework:</b> Machine Learning, Parallel &amp; Distributed Computing, Computer
-          Systems Architecture, Databases, Software Engineering</p>
+        <div class="tags"><span>Final year</span><span>Graduating 2027</span></div>
+        <p style="margin-top:2mm"><b>Key coursework:</b> Machine Learning · Parallel &amp; Distributed Computing ·
+          Computer Systems Architecture · Databases · Software Engineering</p>
       </div>
     </section>
 
@@ -215,10 +230,20 @@
         <div class="tags"><span>Final-year research</span><span>Group project</span><span>Ongoing</span><span>Poster presentation</span></div>
         <p class="authors">M.R.T. Gimhan, <b>P.I. Ihalavithana</b>, N. Farook, E.M.U.W.J.B. Ekanayake · Uva Wellassa University</p>
         <ul>
-          <li><b>Problem:</b> Sri Lanka's drug supply chain (NMRA → SPC → MSD → hospitals) runs on paper records that can be forged; in 2023 about 22,500 substandard immunoglobulin vials reached state hospitals.</li>
-          <li><b>Traceability:</b> permissioned blockchain on <b>Hyperledger Fabric</b> with <b>GS1</b> identifiers for tamper-proof, end-to-end tracking.</li>
-          <li><b>Detection:</b> <b>Isolation Forest</b> and <b>Autoencoder</b> models flag suspicious and counterfeit transactions, with risk scores and real-time alerts stored on-chain.</li>
-          <li><b>Evaluation:</b> accuracy, precision, recall and F1 for the models; throughput, latency and scalability with <b>Hyperledger Caliper</b>.</li>
+          <li><b>Problem.</b> Sri Lanka's state drug supply chain (NMRA → SPC → MSD → hospitals) depends on paper records that can be forged; in 2023 about 22,500 substandard immunoglobulin vials reached state hospitals.</li>
+          <li><b>Traceability.</b> A permissioned blockchain on <b>Hyperledger Fabric</b> with <b>GS1</b> identifiers gives every pack a tamper-proof record across the whole chain.</li>
+          <li><b>Detection.</b> <b>Isolation Forest</b> and <b>Autoencoder</b> models flag suspicious and counterfeit transactions, with risk scores and real-time alerts stored on-chain.</li>
+          <li><b>Evaluation.</b> Models are measured on accuracy, precision, recall and F1; the network on throughput, latency and scalability with <b>Hyperledger Caliper</b>.</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <h2>Labs &amp; Other Work</h2>
+      <div class="entry">
+        <p class="link" style="margin-top:0">github.com/InduwaraIhalavithana/Network-Automation-Lab · induwara-ihalavithana.vercel.app</p>
+        <ul>
+          <li><b>Network Automation Lab.</b> Built two Ubuntu Server VMs in VirtualBox, set a static IP by hand with Netplan, then automated the same change with one <b>Ansible</b> playbook over SSH.</li>
+          <li><b>Portfolio website.</b> <b>Next.js 16</b>, TypeScript, Tailwind CSS, shadcn/ui and Motion, with dark and light themes and full English, Sinhala and Tamil versions, deployed on Vercel.</li>
         </ul>
       </div>
     </section>
@@ -251,6 +276,7 @@
 
     <h2>INTERESTS</h2>
     <ul>
+      <li>AI implementation</li>
       <li>AI hardware and emerging chip technologies</li>
       <li>Competitive tennis</li>
       <li>Self-development and motivational speaking</li>
@@ -273,10 +299,10 @@
         <p class="desc">Crop advice, farm tracking and a marketplace for Sri Lankan farmers and traders</p>
         <p class="link">github.com/Ravindu08/SmartAgri</p>
         <ul>
-          <li><b>XGBoost</b> crop recommendation from 11 soil, climate and location inputs, with explainable results; 7-day weather for all 25 districts.</li>
-          <li>Four roles with multi-role accounts; built the Trader module and Admin dashboard (users, reports, CSV import, harvest forecasting).</li>
-          <li>Marketplace order lifecycle: negotiation, confirmation, simulated checkout, delivery and seller ratings.</li>
-          <li>Docker, nginx and HTTPS on an <b>Azure</b> VM; GitHub Actions CI/CD publishes images to GitHub Container Registry.</li>
+          <li>Built the <b>Trader module</b> and the <b>Admin dashboard</b> (user management, reports, CSV import, harvest forecasting) in a four-role system with multi-role accounts.</li>
+          <li>Recommends crops with an <b>XGBoost</b> model that turns 11 soil, climate and location inputs into explainable results, alongside 7-day weather for all 25 districts.</li>
+          <li>Covers the full marketplace order lifecycle: negotiation, confirmation, simulated checkout, delivery and seller ratings.</li>
+          <li>Runs on Docker, nginx and HTTPS on an <b>Azure</b> VM; GitHub Actions CI/CD publishes images to GitHub Container Registry.</li>
         </ul>
         <div class="stack"><b>Stack</b>React · FastAPI · PostgreSQL · XGBoost · scikit-learn · Docker · nginx · GitHub Actions · Azure</div>
       </div>
@@ -289,10 +315,10 @@
         <p class="desc">Connects food donors with nearby recipients and NGOs</p>
         <p class="link">github.com/InduwaraIhalavithana/Sharing-Excess</p>
         <ul>
-          <li>Donors post surplus food; people nearby see it first and request all or part of it, with stock held until the donor responds.</li>
-          <li>Donor, Recipient, NGO and Admin roles; NGO events, ratings, map view and guided tours.</li>
-          <li>Live notifications over <b>Server-Sent Events</b>; installable PWA, responsive down to 320 px.</li>
-          <li><b>243 automated tests</b> (187 pytest, 56 Vitest), including a check that every UI string exists in all three languages.</li>
+          <li>Donors post surplus food, people nearby see it first and can request all or part of it; stock is held until the donor responds.</li>
+          <li>Designed Donor, Recipient, NGO and Admin roles, with NGO events, ratings, a map view and guided tours.</li>
+          <li>Delivers live notifications over <b>Server-Sent Events</b>; ships as an installable PWA, responsive down to 320 px.</li>
+          <li>Backed by <b>243 automated tests</b> (187 pytest, 56 Vitest), including a check that every UI string exists in all three languages.</li>
         </ul>
         <div class="stack"><b>Stack</b>React 19 · TypeScript · TanStack Query · Zod · Leaflet · FastAPI · SQLAlchemy · PostgreSQL · Docker · GitHub Actions</div>
       </div>
@@ -306,23 +332,11 @@
         <p class="link">github.com/InduwaraIhalavithana/Conference-Manager</p>
         <ul>
           <li>Event editor with live preview: cover image, agenda, speakers and an OpenStreetMap venue pin.</li>
-          <li>Attendees register without an account, confirm with a 6-digit email code and get a QR ticket; a waitlist fills freed seats.</li>
-          <li>Camera check-in desk with a live counter; analytics dashboard with a 14-day trend.</li>
-          <li>CI runs Ruff, migration up/down checks on PostgreSQL, pytest, ESLint, TypeScript, Vitest and a production build.</li>
+          <li>Attendees register without an account, confirm with a 6-digit email code and receive a QR ticket; a waitlist fills freed seats automatically.</li>
+          <li>Camera-based check-in desk with a live counter, plus an analytics dashboard with a 14-day trend.</li>
+          <li>CI runs Ruff, migration up/down checks on PostgreSQL, pytest, ESLint, TypeScript, Vitest and a production build on every push.</li>
         </ul>
         <div class="stack"><b>Stack</b>React 18 · TypeScript · Vite · Leaflet · FastAPI · Alembic · PostgreSQL · Gmail SMTP · Docker · GitHub Actions</div>
-      </div>
-
-      <div class="entry">
-        <div class="head">
-          <h3>Labs and other work</h3>
-          <span class="when">2026</span>
-        </div>
-        <p class="link">github.com/InduwaraIhalavithana/Network-Automation-Lab · induwara-ihalavithana.vercel.app</p>
-        <ul>
-          <li><b>Network Automation Lab:</b> two Ubuntu Server VMs in VirtualBox; set a static IP by hand with Netplan, then with one <b>Ansible</b> playbook over SSH.</li>
-          <li><b>Portfolio website:</b> <b>Next.js 16</b>, TypeScript, Tailwind CSS, shadcn/ui and Motion; dark and light themes; English, Sinhala and Tamil; on Vercel.</li>
-        </ul>
       </div>
     </section>
 
