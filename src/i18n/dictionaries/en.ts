@@ -174,12 +174,19 @@ export const en = {
     objectivesTitle: "Objectives",
     techTitle: "Key technologies",
     downloadPoster: "Download poster (PDF)",
+    posterNote: "Presented earlier, under the project's first title.",
+    supervisor: "Supervisor",
+    roleTitle: "My role",
+    progressTitle: "Progress so far",
+    previousSlide: "Previous slide",
+    nextSlide: "Next slide",
+    showSlide: "Show slide",
     items: {
       "pharma-supply-chain": {
         // The paper's title stays in English everywhere; other languages add a translation under it.
         translatedTitle: "",
         status: "Ongoing",
-        venue: "Poster presentation",
+        venue: "Final-year research project",
         affiliation: "Department of Computer Science and Informatics, Uva Wellassa University",
         question:
           "How can blockchain and artificial intelligence be integrated into a supply chain framework to provide secure drug traceability and effective counterfeit detection in Sri Lanka?",
@@ -199,6 +206,20 @@ export const en = {
           "Unique IDs for products, locations, parties",
           "Anomaly detection on transactions",
           "Throughput, latency and scalability benchmarks",
+        ],
+        role:
+          "AI lead: I build, tune and validate the Isolation Forest and Autoencoder models that flag suspicious drug transactions.",
+        progress: [
+          "Research poster presented",
+          "Research proposal submitted and presented (November 2026)",
+          "Now: reaching out to NMRA, SPC, MSD, a hospital and a pharmacy",
+        ],
+        slides: [
+          "The problem: medicines that cannot be traced",
+          "Literature review and research gap",
+          "Research question, aim, objectives and scope",
+          "Methodology",
+          "Expected outcomes and contribution",
         ],
       },
     },
