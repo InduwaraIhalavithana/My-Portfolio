@@ -27,7 +27,7 @@ export const projects: Project[] = [
     slug: "smartagri",
     name: "SmartAgri",
     accent: "agri",
-    cover: "/projects/smartagri-cover.png",
+    cover: "/projects/smartagri-cover.jpg",
     slides: shots("smartagri"),
     demo: "https://lnkd.in/p/g42mwwTA",
     stack: ["React", "FastAPI", "PostgreSQL", "XGBoost", "Docker", "GitHub Actions", "Azure"],

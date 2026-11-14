@@ -1,8 +1,8 @@
-# Portfolio — Plan (draft, 2026-10-24)
+# Portfolio — Plan (written 2026-10-24, status updated 2026-11-14)
 
 Personal portfolio site for **Induwara Ihalavithana**. Repo: https://github.com/InduwaraIhalavithana/My-Portfolio
 
-**Status (2026-10-24):** One-page site built locally in English, Sinhala and Tamil (/en, /si, /ta) with hero, projects, skills, research (poster), about, contact, CV download; dark/light; side rails; phone layout checked in all three languages. CV PDF built from cv/cv.html. Lint, typecheck, 28 tests and build pass. Nothing committed or pushed yet (waiting for the owner's go). Next: deploy to Vercel (owner signs in), then project case-study pages.
+**Status (2026-11-14):** Live at https://induwara-ihalavithana.vercel.app since 2026-10-24; every push to `main` redeploys on Vercel. One-page site in English, Sinhala and Tamil (/en, /si, /ta) with hero, projects (screenshot slideshows and demo links), labs, skills, research (poster), about, contact and CV download; dark/light; side rails; phone layout. CV PDF is built from cv/cv.html. CI runs lint, typecheck, tests and build on every push. Not built yet from this plan: per-project case-study pages (MDX), the Journey timeline, a contact form, Playwright and Lighthouse checks. The sections below are the original plan and are kept for reference.
 
 ## 1. Goal
 
@@ -56,7 +56,7 @@ Design: dense, colourful, alive (per your taste) — real screenshots and number
 | 5 | Polish | Animations, dark mode, responsive sweep, SEO (meta, OG image), Lighthouse ≥ 95 |
 | 6 | Launch | Custom domain (optional), README, LinkedIn post |
 
-## 5. Open questions for you
+## 5. Open questions for you (all answered on 2026-10-24)
 
 1. **Career focus** — what role are you aiming for? (e.g. full-stack engineer, ML/AI engineer, software engineer intern / graduate, research)
 2. **Research** — list your research work: title, topic, status (published / under review / ongoing), co-authors, links/PDFs.

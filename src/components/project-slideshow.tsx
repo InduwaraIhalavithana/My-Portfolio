@@ -54,7 +54,7 @@ export function ProjectSlideshow({ slides, accentText, accentDot, labels }: Proj
           src={slide.src}
           alt={slide.alt}
           fill
-          sizes="(min-width: 1024px) 540px, 100vw"
+          sizes="(min-width: 1536px) 640px, (min-width: 1024px) 45vw, 100vw"
           className={cn(
             "animate-in fade-in duration-300",
             slide.fit === "cover" ? "object-cover transition-transform duration-700 group-hover:scale-105" : "object-contain",
