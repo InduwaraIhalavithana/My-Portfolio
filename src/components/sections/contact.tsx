@@ -21,7 +21,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
                 {t.text}
               </p>
               {email && (
-                <a href={`mailto:${email}`} className="mt-4 inline-block font-mono text-[clamp(0.75rem,4vw,1rem)] whitespace-nowrap text-white/90 underline-offset-4 hover:underline">
+                <a href={`mailto:${email}`} className="mt-4 inline-block font-mono text-[clamp(0.6875rem,calc(5.3vw-6px),1rem)] whitespace-nowrap text-white/90 underline-offset-4 hover:underline">
                   {email}
                 </a>
               )}
