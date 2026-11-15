@@ -4,6 +4,8 @@ Personal portfolio of **Induwara Ihalavithana**: full-stack projects, research a
 
 **Live:** https://induwara-ihalavithana.vercel.app (deployed on Vercel; every push to `main` redeploys)
 
+[![Portfolio home page](docs/home.png)](https://induwara-ihalavithana.vercel.app)
+
 **Stack:** Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind CSS v4 · shadcn/ui · Motion · MDX · Vitest · deployed on Vercel
 
 ## Run it locally
