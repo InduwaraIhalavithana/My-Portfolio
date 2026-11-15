@@ -117,8 +117,8 @@
 
   /* ---------- Main column ---------- */
   main { padding: 0 10mm 8mm 9mm; }
-  .topbar { height: 5mm; margin: 0 -10mm 8mm -9mm; background: var(--teal); }
-  main section { margin-bottom: 7mm; }
+  .topbar { height: 5mm; margin: 0 -10mm 6.5mm -9mm; background: var(--teal); }
+  main section { margin-bottom: 5.4mm; }
   main h2 {
     margin: 0 0 3mm;
     padding-bottom: 1mm;
@@ -129,7 +129,7 @@
     color: var(--navy);
     text-transform: uppercase;
   }
-  .lead { font-size: 9.9pt; line-height: 1.62; }
+  .lead { font-size: 9.6pt; line-height: 1.55; }
 
 
   .entry + .entry { margin-top: 3.5mm; }
@@ -137,6 +137,8 @@
   main h3 { margin: 0; font-size: 11.2pt; line-height: 1.32; font-weight: 600; color: var(--blue); }
   .when { flex-shrink: 0; font-size: 8.4pt; font-weight: 600; color: var(--muted); }
   .desc { margin-top: 0.6mm; font-size: 9.2pt; color: var(--muted); }
+  .course { margin-top: 0.9mm; font-size: 9.1pt; line-height: 1.45; }
+  .course b { color: var(--navy); }
   .link { margin-top: 0.4mm; font-size: 8.2pt; color: var(--blue); }
   .tags { display: flex; flex-wrap: wrap; gap: 1.4mm; margin-top: 1.6mm; }
   .tags span {
@@ -148,7 +150,7 @@
     color: var(--blue);
   }
   .authors { margin-top: 1.4mm; font-size: 8.6pt; color: var(--muted); }
-  main ul { margin: 2mm 0 0; padding-left: 13px; }
+  main ul { margin: 1.6mm 0 0; padding-left: 13px; }
   main li { margin-bottom: 1.1mm; }
   main li::marker { color: var(--blue); }
   .stack {
@@ -203,7 +205,7 @@
         <b>machine learning</b>, from an explainable XGBoost crop recommender to ongoing research on AI-based
         counterfeit drug detection.
       </p>
-      <p class="lead" style="margin-top:2.4mm">
+      <p class="lead" style="margin-top:1.8mm">
         I became an engineer to help people, so I look for problems that affect daily life and build the
         software that solves them.
       </p>
@@ -218,8 +220,12 @@
         </div>
         <p class="desc">Uva Wellassa University of Sri Lanka · Faculty of Applied Sciences, Badulla</p>
         <div class="tags"><span>Final year</span><span>Graduating 2027</span></div>
-        <p style="margin-top:2mm"><b>Key coursework:</b> Machine Learning · Parallel &amp; Distributed Computing ·
-          Computer Systems Architecture · Databases · Software Engineering</p>
+        <p style="margin-top:2.2mm"><b>Key coursework</b></p>
+        <p class="course"><b>Software:</b> Software Engineering · Object-Oriented Programming · Web Application
+          Development · Databases</p>
+        <p class="course"><b>AI &amp; Data:</b> Machine Learning · Deep Learning · Artificial Intelligence · Data Science</p>
+        <p class="course"><b>Systems:</b> Data Structures &amp; Algorithms · Operating Systems · Computer Networks ·
+          Computer Systems Architecture · Parallel &amp; Distributed Computing · Cloud Computing · Information Security</p>
       </div>
     </section>
 
@@ -240,7 +246,7 @@
     <section>
       <h2>Labs &amp; Other Work</h2>
       <div class="entry">
-        <p class="link" style="margin-top:0">github.com/InduwaraIhalavithana/Network-Automation-Lab · induwara-ihalavithana.vercel.app</p>
+        <p class="link" style="margin-top:-1mm">github.com/InduwaraIhalavithana/Network-Automation-Lab · induwara-ihalavithana.vercel.app</p>
         <ul>
           <li><b>Network Automation Lab.</b> Built two Ubuntu Server VMs in VirtualBox, set a static IP by hand with Netplan, then automated the same change with one <b>Ansible</b> playbook over SSH.</li>
           <li><b>Portfolio website.</b> <b>Next.js 16</b>, TypeScript, Tailwind CSS, shadcn/ui and Motion, with dark and light themes and full English, Sinhala and Tamil versions, deployed on Vercel.</li>
