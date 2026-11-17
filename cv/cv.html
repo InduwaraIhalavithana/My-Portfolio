@@ -187,7 +187,7 @@
 
     <h2>TECHNICAL SKILLS</h2>
     <div class="skill"><h3>Languages</h3><p>Python • TypeScript • JavaScript • Java • SQL • Bash</p></div>
-    <div class="skill"><h3>AI / ML</h3><p>XGBoost • scikit-learn • TensorFlow • PyTorch • pandas • NumPy • Isolation Forest • Autoencoders • Explainable AI</p></div>
+    <div class="skill"><h3>AI / ML</h3><p>XGBoost • Random Forest • scikit-learn • pandas • NumPy • Isolation Forest • Autoencoders • Explainable AI</p></div>
     <div class="skill"><h3>Web &amp; Backend</h3><p>React • Next.js • Tailwind CSS • FastAPI • SQLAlchemy • Alembic • PostgreSQL • REST APIs • JWT</p></div>
     <div class="skill"><h3>DevOps &amp; Cloud</h3><p>Docker • nginx • GitHub Actions CI/CD • Azure VMs • Vercel • Ansible • Linux (Ubuntu Server)</p></div>
   </aside>
@@ -199,11 +199,11 @@
       <h2>Profile</h2>
       <p class="lead">
         Final-year Computer Science and Technology undergraduate who designs, builds and deploys complete
-        software products for real problems in Sri Lanka. I have shipped three <b>full-stack platforms</b> end
-        to end, covering the data model, REST API, React frontend, role-based dashboards, automated tests,
-        CI/CD and cloud deployment, each one usable in English, Sinhala and Tamil. I pair web engineering with
-        <b>machine learning</b>, from an explainable XGBoost crop recommender to ongoing research on AI-based
-        counterfeit drug detection.
+        software products for real problems in Sri Lanka. I have built three <b>full-stack platforms</b> end
+        to end, covering the data model, REST API, React frontend, role-based dashboards, automated tests and
+        CI/CD, each one usable in English, Sinhala and Tamil, and deployed SmartAgri to Azure. I pair web
+        engineering with <b>machine learning</b>, from an explainable Random Forest + XGBoost crop recommender
+        to my final-year research on AI-based counterfeit drug detection.
       </p>
       <p class="lead" style="margin-top:1.8mm">
         I became an engineer to help people, so I look for problems that affect daily life and build the
@@ -238,8 +238,8 @@
         <ul>
           <li><b>Problem.</b> Sri Lanka's state drug supply chain (NMRA → SPC → MSD → hospitals) depends on paper records that can be forged; in 2023 about 22,500 substandard immunoglobulin vials reached state hospitals.</li>
           <li><b>Traceability.</b> A permissioned blockchain on <b>Hyperledger Fabric</b> with <b>GS1</b> identifiers gives every pack a tamper-proof record across the whole chain.</li>
-          <li><b>Detection (my role, AI lead).</b> I build, tune and validate the <b>Isolation Forest</b> and <b>Autoencoder</b> models that flag suspicious and counterfeit transactions, with risk scores and real-time alerts stored on-chain.</li>
-          <li><b>Evaluation.</b> Models are measured on accuracy, precision, recall and F1; the network on throughput, latency and scalability with <b>Hyperledger Caliper</b>.</li>
+          <li><b>Detection (my role, AI lead).</b> I lead data preparation, feature engineering and the <b>Isolation Forest</b> and <b>Autoencoder</b> models that score each committed transaction and raise alerts for human review.</li>
+          <li><b>Evaluation.</b> Detection is measured on precision, recall, F1, PR-AUC and ROC-AUC; the network on throughput and latency with <b>Hyperledger Caliper</b>.</li>
         </ul>
       </div>
     </section>
@@ -248,8 +248,8 @@
       <div class="entry">
         <p class="link" style="margin-top:-1mm">github.com/InduwaraIhalavithana/Network-Automation-Lab · induwara-ihalavithana.vercel.app</p>
         <ul>
-          <li><b>Network Automation Lab.</b> Built two Ubuntu Server VMs in VirtualBox, set a static IP by hand with Netplan, then automated the same change with one <b>Ansible</b> playbook over SSH.</li>
-          <li><b>Portfolio website.</b> <b>Next.js 16</b>, TypeScript, Tailwind CSS, shadcn/ui and Motion, with dark and light themes and full English, Sinhala and Tamil versions, deployed on Vercel.</li>
+          <li><b>Network Automation Lab</b> (CST 436-2). Set a static IP by hand with Netplan on an Ubuntu Server VM, then used one <b>Ansible</b> playbook from a control node to add a second IP and new DNS over SSH.</li>
+          <li><b>Portfolio website.</b> <b>Next.js 16</b>, TypeScript, Tailwind CSS, shadcn/ui and Motion; dark and light themes, English, Sinhala and Tamil; on Vercel.</li>
         </ul>
       </div>
     </section>
@@ -300,15 +300,15 @@
       <div class="entry">
         <div class="head">
           <h3>SmartAgri: AI-powered agriculture platform</h3>
-          <span class="when">Team of 4 · 2026</span>
+          <span class="when">University project · Team of 4 · 2026</span>
         </div>
         <p class="desc">Crop advice, farm tracking and a marketplace for Sri Lankan farmers and traders</p>
         <p class="link">github.com/Ravindu08/SmartAgri</p>
         <ul>
-          <li>Built the <b>Trader module</b> and the <b>Admin dashboard</b> (user management, reports, CSV import, harvest forecasting) in a three-role system with multi-role accounts.</li>
-          <li>Recommends crops with an <b>XGBoost</b> model that turns 11 soil, climate and location inputs into explainable results, alongside 7-day weather for all 25 districts.</li>
+          <li>Did most of the build: the ML service, <b>Trader module</b>, <b>Admin dashboard</b> (user management, reports, CSV import, harvest forecasting), marketplace and CI/CD, in a three-role system with multi-role accounts.</li>
+          <li>Recommends crops with a <b>Random Forest + XGBoost</b> ensemble that turns 11 soil, climate and location inputs into explainable results, alongside 7-day weather for all 25 districts.</li>
           <li>Covers the full marketplace order lifecycle: negotiation, confirmation, simulated checkout, delivery and seller ratings.</li>
-          <li>Runs on Docker, nginx and HTTPS on an <b>Azure</b> VM; GitHub Actions CI/CD publishes images to GitHub Container Registry.</li>
+          <li>Deployed with Docker, nginx and HTTPS on an <b>Azure</b> VM; GitHub Actions CI/CD publishes images to GitHub Container Registry.</li>
         </ul>
         <div class="stack"><b>Stack</b>React · FastAPI · PostgreSQL · XGBoost · scikit-learn · Docker · nginx · GitHub Actions · Azure</div>
       </div>
@@ -316,7 +316,7 @@
       <div class="entry">
         <div class="head">
           <h3>Sharing Excess: food redistribution platform</h3>
-          <span class="when">Final-year project · 2026</span>
+          <span class="when">Personal project · 2026</span>
         </div>
         <p class="desc">Connects food donors with nearby recipients and NGOs</p>
         <p class="link">github.com/InduwaraIhalavithana/Sharing-Excess</p>
@@ -324,7 +324,7 @@
           <li>Donors post surplus food, people nearby see it first and can request all or part of it; stock is held until the donor responds.</li>
           <li>Designed Donor, Recipient, NGO and Admin roles, with NGO events, ratings, a map view and guided tours.</li>
           <li>Delivers live notifications over <b>Server-Sent Events</b>; ships as an installable PWA, responsive down to 320 px.</li>
-          <li>Backed by <b>243 automated tests</b> (187 pytest, 56 Vitest), including a check that every UI string exists in all three languages.</li>
+          <li>Backed by <b>245 automated tests</b> (187 pytest, 58 Vitest), including a check that every UI string exists in all three languages.</li>
         </ul>
         <div class="stack"><b>Stack</b>React 19 · TypeScript · TanStack Query · Zod · Leaflet · FastAPI · SQLAlchemy · PostgreSQL · Docker · GitHub Actions</div>
       </div>
@@ -332,14 +332,14 @@
       <div class="entry">
         <div class="head">
           <h3>ConferenceHub: conference management platform</h3>
-          <span class="when">Individual · 2026</span>
+          <span class="when">Personal project · 2026</span>
         </div>
         <p class="desc">Plan, publish and run conferences end to end</p>
         <p class="link">github.com/InduwaraIhalavithana/Conference-Manager</p>
         <ul>
           <li>Event editor with live preview: cover image, agenda, speakers and an OpenStreetMap venue pin.</li>
           <li>Attendees register without an account, confirm with a 6-digit email code and receive a QR ticket; a waitlist fills freed seats automatically.</li>
-          <li>Camera-based check-in desk with a live counter, plus an analytics dashboard with a 14-day trend.</li>
+          <li>Camera-based check-in desk with a live counter; organiser dashboard with a 14-day trend, plus an analytics page.</li>
           <li>CI runs Ruff, migration up/down checks on PostgreSQL, pytest, ESLint, TypeScript, Vitest and a production build on every push.</li>
         </ul>
         <div class="stack"><b>Stack</b>React 18 · TypeScript · Vite · Leaflet · FastAPI · Alembic · PostgreSQL · Gmail SMTP · Docker · GitHub Actions</div>

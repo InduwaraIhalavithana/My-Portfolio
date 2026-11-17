@@ -50,7 +50,7 @@ export const en = {
         summary:
           "An agriculture platform that takes a Sri Lankan farmer from choosing a crop to selling the harvest. A machine-learning model recommends the three best crops for a plot from its soil, climate and location, and explains why each one was picked. Land owners then track their farms and cultivation tasks, and sell to traders through a built-in marketplace.",
         highlights: [
-          "XGBoost crop recommendation: the top 3 of 41 Sri Lankan crops, each with a plain explanation",
+          "Random Forest + XGBoost crop recommendation: the top 3 of 41 Sri Lankan crops, each with a plain explanation",
           "Cultivation tracker that builds a task schedule for every crop, with growth, fertiliser and pest guides",
           "Marketplace with price negotiation, simulated checkout, PDF receipts and seller ratings",
           "Land Owner, Trader and Admin roles; one account can hold two roles and switch live",
@@ -60,7 +60,7 @@ export const en = {
       },
       "sharing-excess": {
         tagline: "Surplus food, shared nearest-first",
-        context: "Final-year project",
+        context: "Personal project",
         summary:
           "A food redistribution platform for Sri Lanka. Donors post surplus food with photos, a quantity and an expiry time; people in the same district see it first and can request all or part of it. The amount they ask for is held until the donor answers, and contact details are shared only after the donor accepts. Approved NGOs publish food drives and volunteer events.",
         highlights: [
@@ -74,7 +74,7 @@ export const en = {
       },
       conferencehub: {
         tagline: "Run a conference end to end",
-        context: "Individual project",
+        context: "Personal project",
         summary:
           "A platform for running a conference from the first announcement to the door. Organisers publish an event with a cover, an agenda, speakers and a venue map. Attendees register without an account, confirm their email with a 6-digit code and receive a QR ticket. When a seat frees up the waitlist fills it automatically, and the check-in desk scans tickets with any phone camera.",
         highlights: [
