@@ -36,7 +36,7 @@ export const projects: Project[] = [
     cover: "/projects/sharing-excess-cover.png",
     demo: "https://lnkd.in/p/g4cekeV8",
     stack: ["React", "TypeScript", "FastAPI", "PostgreSQL", "Docker", "GitHub Actions"],
-    stats: ["187", "56", "3"],
+    stats: ["187", "58", "3"],
     repo: "https://github.com/InduwaraIhalavithana/Sharing-Excess",
   },
   {
