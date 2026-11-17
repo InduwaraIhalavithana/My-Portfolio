@@ -24,7 +24,8 @@ export const OWNER_AUTHOR = "P.I. Ihalavithana";
 export const research: ResearchItem[] = [
   {
     slug: "pharma-supply-chain",
-    title: "AI-Enhanced Blockchain Framework for Pharmaceutical Drug Transaction Traceability",
+    title:
+      "Blockchain and AI-Driven Pharmaceutical Supply Chain Framework for Secure Drug Traceability and Transaction Anomaly Detection",
     authors: ["M.R.T. Gimhan", OWNER_AUTHOR, "N. Farook"],
     supervisor: "Prof. E.M.U.W.J.B. Ekanayake",
     lab: "AIDICA Lab",
