@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Compass, GraduationCap, Layers, Presentation } from "lucide-react";
+import { ArrowLeft, ArrowRight, Compass, Languages, Layers, Presentation } from "lucide-react";
 import { guideSections, topicCount, trackIds } from "@/data/guide";
 import { hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -42,7 +42,7 @@ export default async function GuidePage({ params }: PageProps<"/[lang]/guide">) 
   const stats = [
     { value: `${guideSections.length}`, label: ui.decksTitle, Icon: Presentation, color: "text-conf" },
     { value: `${topicCount}`, label: ui.stats.topics, Icon: Layers, color: "text-share" },
-    { value: ui.stats.freeValue, label: ui.stats.free, Icon: GraduationCap, color: "text-spark" },
+    { value: `${locales.length}`, label: ui.stats.languages, Icon: Languages, color: "text-spark" },
   ];
 
   return (
