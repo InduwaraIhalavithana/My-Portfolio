@@ -10,10 +10,12 @@ import { Button } from "@/components/ui/button";
 type LanguageSwitcherProps = {
   lang: Locale;
   label: string;
+  /** Path after the language segment, e.g. "/guide"; empty on the home page. */
+  path?: string;
 };
 
-// Dropdown that moves to /en, /si or /ta, keeps the current section, and remembers the choice.
-export function LanguageSwitcher({ lang, label }: LanguageSwitcherProps) {
+// Dropdown that moves to /en, /si or /ta (on the same page), keeps the current section, and remembers the choice.
+export function LanguageSwitcher({ lang, label, path = "" }: LanguageSwitcherProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -37,7 +39,7 @@ export function LanguageSwitcher({ lang, label }: LanguageSwitcherProps) {
     setOpen(false);
     if (next === lang) return;
     saveLocale(next);
-    router.push(`/${next}${window.location.hash}`, { scroll: false });
+    router.push(`/${next}${path}${window.location.hash}`, { scroll: false });
   };
 
   return (

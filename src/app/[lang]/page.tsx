@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SideRails } from "@/components/side-rails";
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
+import { GuideTeaser } from "@/components/sections/guide-teaser";
 import { Hero } from "@/components/sections/hero";
 import { Labs } from "@/components/sections/labs";
 import { Projects } from "@/components/sections/projects";
@@ -27,6 +28,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Labs dict={dict} />
         <Skills dict={dict} />
         <Research dict={dict} />
+        <GuideTeaser dict={dict} lang={lang} />
         <About dict={dict} />
         <Contact dict={dict} />
       </main>
