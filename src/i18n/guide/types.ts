@@ -50,7 +50,7 @@ export type GuideText = {
     eyebrow: string;
     title: string;
     intro: string;
-    stats: { topics: string; tracks: string; free: string; freeValue: string };
+    stats: { topics: string; tracks: string; languages: string };
     tracks: Record<TrackId | "all", string>;
     trackIntro: Record<TrackId, string>;
     priority: Record<Priority, string>;

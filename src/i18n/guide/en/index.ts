@@ -27,7 +27,7 @@ export const guideEn: GuideText = {
     title: "What you need to know to become a full-stack or AI/ML engineer",
     intro:
       "30 short slide decks that take you from the fundamentals to the hard parts. Every idea comes with a picture, a real scenario and when to use it, and every deck ends with a recap and a quick quiz.",
-    stats: { topics: "Slides", tracks: "Tracks", free: "Price", freeValue: "Free" },
+    stats: { topics: "Slides", tracks: "Tracks", languages: "Languages" },
     tracks: { all: "All", foundations: "Foundations", fullstack: "Full-stack", ai: "AI / ML / DL", pro: "Working as an engineer" },
     trackIntro: {
       foundations: "What every engineer needs, whichever path you choose.",
