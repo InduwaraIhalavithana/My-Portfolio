@@ -18,6 +18,7 @@ export const en = {
     closeMenu: "Close menu",
     language: "Language",
     sections: "Sections",
+    guide: "Study Guide",
   },
   common: {
     location: "Sri Lanka",
@@ -199,6 +200,15 @@ export const en = {
         ],
       },
     },
+  },
+  guideTeaser: {
+    eyebrow: "Free study guide",
+    title: "Want to become an engineer? Start here.",
+    intro:
+      "Free slide decks for students who want to become full-stack or AI/ML engineers. Every important topic, from the basics to the hard parts, explained in plain words with real-life examples, diagrams and short quizzes.",
+    points: ["topics in plain words", "slide decks", "role paths"],
+    cta: "Open the study guide",
+    sampleLabel: "Example topics",
   },
   about: {
     eyebrow: "About me",
