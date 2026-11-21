@@ -20,7 +20,7 @@ export const si: Dictionary = {
     closeMenu: "මෙනුව වසන්න",
     language: "භාෂාව",
     sections: "කොටස්",
-    guide: "අධ්‍යයන මඟපෙන්වීම",
+    guide: "අධ්‍යයනය",
   },
   common: {
     location: "ශ්‍රී ලංකාව",

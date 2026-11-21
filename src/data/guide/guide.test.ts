@@ -123,7 +123,7 @@ describe.each([
   });
 
   it("keeps the {placeholders} the UI fills in", () => {
-    for (const key of ["progressCount", "slides", "slideOf", "score"] as const) {
+    for (const key of ["slides", "slideOf"] as const) {
       const want = guideEn.ui[key].match(/\{\w+\}/g)?.sort();
       expect(g.ui[key].match(/\{\w+\}/g)?.sort()).toEqual(want);
     }

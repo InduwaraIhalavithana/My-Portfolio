@@ -18,7 +18,7 @@ export const en = {
     closeMenu: "Close menu",
     language: "Language",
     sections: "Sections",
-    guide: "Study Guide",
+    guide: "Study",
   },
   common: {
     location: "Sri Lanka",

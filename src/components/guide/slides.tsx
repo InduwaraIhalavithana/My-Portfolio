@@ -353,27 +353,23 @@ export function QuizSlide({
   deck,
   text,
   ui,
-  onDone,
   onSkip,
 }: {
   deck: GuideSection;
   text: SectionText;
   ui: UI;
-  onDone: (score: number) => void;
   onSkip: () => void;
 }) {
   const s = deckStyle[deck.color];
   const questions = text.quiz ?? [];
   const [picked, setPicked] = useState<(number | null)[]>(() => questions.map(() => null));
   const answered = picked.filter((p) => p !== null).length;
-  const score = picked.filter((p, i) => p === deck.quiz[i]).length;
   const done = answered === questions.length;
 
   const choose = (qi: number, oi: number) => {
     if (picked[qi] !== null) return;
     const next = picked.map((p, i) => (i === qi ? oi : p));
     setPicked(next);
-    if (next.every((p) => p !== null)) onDone(next.filter((p, i) => p === deck.quiz[i]).length);
   };
 
   return (
@@ -438,7 +434,6 @@ export function QuizSlide({
       </div>
       {done && (
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="mt-5 flex flex-wrap items-center justify-center gap-3 text-center">
-          <p className="text-lg font-bold">{fill(ui.score, { score, total: questions.length })}</p>
           <button type="button" onClick={() => setPicked(questions.map(() => null))} className="inline-flex items-center gap-1.5 rounded-full border px-4 py-1.5 text-sm font-semibold hover:bg-accent">
             <RotateCcw className="size-4" /> {ui.retry}
           </button>
@@ -452,15 +447,11 @@ export function FinishSlide({
   deck,
   ui,
   lang,
-  best,
-  total,
   next,
 }: {
   deck: GuideSection;
   ui: UI;
   lang: string;
-  best?: number;
-  total: number;
   next?: { id: string; title: string; emoji: string };
 }) {
   const s = deckStyle[deck.color];
@@ -493,11 +484,6 @@ export function FinishSlide({
       <Rise i={2}>
         <p className="mt-2 max-w-md text-muted-foreground">{ui.finishedIntro}</p>
       </Rise>
-      {best !== undefined && (
-        <Rise i={3}>
-          <p className={cn("mt-4 rounded-full px-4 py-1.5 font-bold", s.soft, s.text)}>{fill(ui.score, { score: best, total })}</p>
-        </Rise>
-      )}
       <Rise i={4} className="mt-6 flex flex-wrap justify-center gap-3">
         {next && (
           <Link href={`/${lang}/guide/${next.id}`} className={cn("inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-semibold text-white shadow-md transition-transform hover:-translate-y-0.5", s.bg)}>

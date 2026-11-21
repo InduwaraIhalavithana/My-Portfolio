@@ -20,7 +20,7 @@ export const ta: Dictionary = {
     closeMenu: "பட்டியலை மூடு",
     language: "மொழி",
     sections: "பகுதிகள்",
-    guide: "வழிகாட்டி",
+    guide: "கற்றல்",
   },
   common: {
     location: "இலங்கை",

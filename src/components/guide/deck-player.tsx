@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 import type { GuideSection } from "@/data/guide";
 import type { GuideText, SectionText, TopicText } from "@/i18n/guide/types";
 import { deckStyle, fill } from "./guide-style";
-import { useQuizScores, useSeen } from "./progress-store";
 import { CoverSlide, FinishSlide, QuizSlide, RecapSlide, ToolboxSlide, TopicSlide } from "./slides";
 
 type DeckPlayerProps = {
@@ -26,8 +25,6 @@ export function DeckPlayer({ lang, deck, number, text, topics, ui, next }: DeckP
   const total = deck.topics.length + 5;
   const [[index, dir], setState] = useState<[number, number]>([0, 0]);
   const [outline, setOutline] = useState(false);
-  const { markSeen } = useSeen();
-  const { scores, saveScore } = useQuizScores();
   const reduce = useReducedMotion();
   const top = useRef<HTMLDivElement>(null);
   const s = deckStyle[deck.color];
@@ -58,13 +55,11 @@ export function DeckPlayer({ lang, deck, number, text, topics, ui, next }: DeckP
   // Only react to real slide changes (effects can run twice for the same slide in development).
   const shown = useRef(index);
   useEffect(() => {
-    const topic = deck.topics[index - 1];
-    if (topic) markSeen(topic.id);
     if (shown.current === index) return;
     shown.current = index;
     window.history.replaceState(null, "", index === 0 ? window.location.pathname : `#${index + 1}`);
     top.current?.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
-  }, [index, deck.topics, markSeen, reduce]);
+  }, [index, reduce]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -109,9 +104,9 @@ export function DeckPlayer({ lang, deck, number, text, topics, ui, next }: DeckP
   } else if (index === total - 3) {
     slide = <RecapSlide deck={deck} text={text} ui={ui} />;
   } else if (index === total - 2) {
-    slide = <QuizSlide deck={deck} text={text} ui={ui} onDone={(score) => saveScore(deck.id, score)} onSkip={() => go(total - 1)} />;
+    slide = <QuizSlide deck={deck} text={text} ui={ui} onSkip={() => go(total - 1)} />;
   } else {
-    slide = <FinishSlide deck={deck} ui={ui} lang={lang} best={scores[deck.id]} total={deck.quiz.length} next={next} />;
+    slide = <FinishSlide deck={deck} ui={ui} lang={lang} next={next} />;
   }
 
   return (
