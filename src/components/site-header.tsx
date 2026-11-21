@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -24,6 +24,12 @@ type SiteHeaderProps = {
 export function SiteHeader({ lang, nav, page = "home", path }: SiteHeaderProps) {
   const sectionHref = (id: string) => (page === "home" ? `#${id}` : `/${lang}#${id}`);
   const guideHref = `/${lang}/guide`;
+  // Section links, with the study guide page right after Research.
+  const links = sectionIds.flatMap((id) => {
+    const section = { key: id, href: sectionHref(id), label: nav[id], current: false };
+    if (id !== "research") return [section];
+    return [section, { key: "guide", href: guideHref, label: nav.guide, current: page === "guide" }];
+  });
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -52,28 +58,19 @@ export function SiteHeader({ lang, nav, page = "home", path }: SiteHeaderProps) 
         </a>
 
         <nav aria-label={nav.sections} className="hidden items-center gap-1 xl:flex">
-          {sectionIds.map((id) => (
-            <a
-              key={id}
-              href={sectionHref(id)}
-              className="rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+          {links.map((l) => (
+            <Link
+              key={l.key}
+              href={l.href}
+              aria-current={l.current ? "page" : undefined}
+              className={cn(
+                "rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors hover:bg-accent hover:text-accent-foreground",
+                l.current ? "text-foreground" : "text-muted-foreground",
+              )}
             >
-              {nav[id]}
-            </a>
+              {l.label}
+            </Link>
           ))}
-          <Link
-            href={guideHref}
-            aria-current={page === "guide" ? "page" : undefined}
-            className={cn(
-              "ml-1 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold whitespace-nowrap transition-all",
-              page === "guide"
-                ? "bg-primary text-primary-foreground"
-                : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground",
-            )}
-          >
-            <GraduationCap className="size-4" />
-            {nav.guide}
-          </Link>
         </nav>
 
         <div className="flex items-center gap-1">
@@ -99,24 +96,17 @@ export function SiteHeader({ lang, nav, page = "home", path }: SiteHeaderProps) 
 
       {open && (
         <nav aria-label={nav.sections} className="border-t px-4 pb-4 xl:hidden">
-          {sectionIds.map((id) => (
-            <a
-              key={id}
-              href={sectionHref(id)}
+          {links.map((l) => (
+            <Link
+              key={l.key}
+              href={l.href}
+              aria-current={l.current ? "page" : undefined}
               onClick={() => setOpen(false)}
               className="block rounded-md px-3 py-3 font-medium hover:bg-accent"
             >
-              {nav[id]}
-            </a>
+              {l.label}
+            </Link>
           ))}
-          <Link
-            href={guideHref}
-            onClick={() => setOpen(false)}
-            className="mt-1 flex items-center gap-2 rounded-md bg-primary/10 px-3 py-3 font-semibold text-primary"
-          >
-            <GraduationCap className="size-4" />
-            {nav.guide}
-          </Link>
         </nav>
       )}
     </header>

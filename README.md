@@ -14,7 +14,6 @@ https://induwara-ihalavithana.vercel.app/en/guide (also in [Sinhala](https://ind
 - **30 slide decks, 291 topics** in four tracks: Foundations, Full-stack, AI / ML / DL, and Working as an engineer (principles, SDLC and requirements, teamwork, documentation)
 - Each deck: a guide character, one slide per topic (meaning, analogy, real scenario, when to use it, plus a diagram, chart, table, code or comparison), a toolbox of today's tools with how to choose, a recap and an optional 4-question quiz
 - Role paths (full-stack, AI, ML, DL engineer), practice projects by level and free resources
-- Progress and quiz scores are saved in the browser only; no account needed
 - Deep links to a slide (`/en/guide/backend#12`), arrow keys and swipe
 
 **Stack:** Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind CSS v4 · shadcn/ui · Motion · MDX · Vitest · deployed on Vercel
@@ -74,7 +73,7 @@ src/
   proxy.ts        redirects "/" to the right language
   components/     header, footer, project card, animation helpers
     sections/     hero, projects, labs, guide teaser, skills, research, about, contact
-    guide/        slides, charts and diagrams, deck grid, role paths, progress store
+    guide/        slides, charts and diagrams, deck grid, role paths
     ui/           shadcn/ui components
   data/           site content
 ```

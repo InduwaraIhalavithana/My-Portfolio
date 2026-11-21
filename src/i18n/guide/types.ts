@@ -58,12 +58,7 @@ export type GuideText = {
     analogy: string;
     example: string;
     useWhen: string;
-    progress: string;
     /** "{done} of {total} learned" */
-    progressCount: string;
-    resetProgress: string;
-    resetConfirm: string;
-    progressNote: string;
     backToPortfolio: string;
     browseTopics: string;
     decksTitle: string;
@@ -71,8 +66,6 @@ export type GuideText = {
     /** "{count} slides" */
     slides: string;
     start: string;
-    continue: string;
-    review: string;
     deck: string;
     /** "Slide {n} of {total}" */
     slideOf: string;
@@ -90,7 +83,6 @@ export type GuideText = {
     correct: string;
     wrong: string;
     /** "You got {score} of {total}" */
-    score: string;
     retry: string;
     nextDeck: string;
     finished: string;
