@@ -217,7 +217,7 @@ export const en = {
       "I became a software engineer to help people. I see what is happening in the world and in my own country, people struggling with problems that should not exist, and I keep asking the same question: ",
     p1Strong: "what would actually fix this?",
     p1End: " Then I build it and put it live.",
-    p2: "That is how my work started: farmers guessing what to plant, good food thrown away while families go without, counterfeit medicine reaching state hospitals. Each answer goes the whole way, from data model and AI to interface, tests and deployment, in Sinhala and Tamil as well as English so it reaches everyone.",
+    p2: "That is how my work started: farmers guessing what to plant, good food thrown away while families go without, counterfeit medicine reaching state hospitals. Each answer goes the whole way, from data model and AI to interface, tests and deployment, in Sinhala and Tamil as well as English so it reaches everyone. I also share what I have learned: a free study guide of 30 slide decks for students who want to become full-stack or AI/ML engineers.",
     motto: "Whatever I can help with, I want to.",
     educationLabel: "Education",
     degree: "BSc (Hons) in Computer Science and Technology",
